@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Two-A Restaurant - About Page</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+	<link href="{% static 'css/all.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/templatemo-style.css' %}" rel="stylesheet" />
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+
+<body>
+
+	<div class="container">
+		<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/simple-house-01.jpg' %}">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="{% static 'img/simple-house-logo.png' %}" alt="Logo" class="tm-site-logo" />
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">Two-A</h1>
+								<h6 class="tm-site-description">New Restaurant</h6>
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="/" class="tm-nav-link">Home</a></li>
+								<li class="tm-nav-li"><a href="/about/" class="tm-nav-link active">About</a></li>
+								<li class="tm-nav-li"><a href="/contact/" class="tm-nav-link">Contact</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">About Chefs</h2>
+				<p class="col-12 text-center">We have a fully professional team of chefs in our restaurant</p>
+			</header>
+
+			<div class="tm-container-inner tm-persons">
+				<div class="row">
+
+					{% for chef in chef_list %}
+					<article class="col-lg-6">
+						<figure class="tm-person">
+							<img src="{{chef.image}}" alt="Image" class="img-fluid chefimages tm-person-img"/>
+							<figcaption class="tm-person-description">
+								<h4 class="tm-person-name">{{chef.name}}</h4>
+								<p class="tm-person-title">{{chef.responsibility}}</p>
+								<p class="tm-person-about">{{chef.description}}</p>
+								<div>
+									{% if chef.facebook_ID %}
+									<a href="//{{chef.facebook_ID}}" class="tm-social-link"><i
+											class="fab fa-facebook tm-social-icon"></i></a>
+									{% endif %}
+									{% if chef.twitter_ID %}
+									<a href="//{{chef.twitter_ID}}" class="tm-social-link"><i
+											class="fab fa-twitter tm-social-icon"></i></a>
+									{% endif %}
+									{% if chef.instagram_ID %}
+									<a href="//{{chef.instagram_ID}}" class="tm-social-link"><i
+											class="fab fa-instagram tm-social-icon"></i></a>
+									{% endif %}
+									{% if chef.youtube_ID %}
+									<a href="//{{chef.youtube_ID}}" class="tm-social-link"><i
+											class="fab fa-youtube tm-social-icon"></i></a>
+									{% endif %}
+								</div>
+							</figcaption>
+						</figure>
+					</article>
+					{% endfor %}
+
+
+				</div>
+			</div>
+			<div class="tm-container-inner tm-featured-image">
+				<div class="row">
+					<div class="col-12">
+						<div class="placeholder-2">
+							<div class="parallax-window-2" data-parallax="scroll" data-image-src="{% static 'img/about-05.jpg' %}">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="tm-container-inner tm-history">
+				<div class="row">
+					<div class="col-12">
+						<div class="tm-history-inner">
+							<img src="{% static 'img/about-06.jpg' %}" alt="Image" class="img-fluid tm-history-img" />
+							<div class="tm-history-text">
+								<h4 class="tm-history-title">History of our restaurant</h4>
+								<p class="tm-mb-p">The concept of eating out is ancient, but restaurants as we know them
+									are fairly recent. In 18th century France, broth vendors like Boulanger offered
+									"restorative" meals, coining the term "restaurant." These evolved into popular
+									eateries, especially in Paris. By the 19th century, restaurants were a fixture of
+									European social life.</p>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>Copyright &copy; 2020 Simple House
+
+				| Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+		</footer>
+	</div>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+</body>
+
+</html>
